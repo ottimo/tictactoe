@@ -1,0 +1,37 @@
+
+
+<% unless @game.winner.nil? %>
+<h1><%= @game.next_player? %> you lose!!!! </h1>
+<% else %>
+<h3>Move player <%= @game.next_player? %></h3>
+<% end %>
+
+<table>
+  <tr>
+<% cell = 0 %>
+<% (0...9).each do |cell| %>
+  <% if cell%3 ==0 %>
+    </tr>
+    <tr>
+  <% end %>
+  <td style="width:50px;">
+
+  <% if @game.table[cell].to_i == 0 %>
+    <%= form_for(@game) do |f| %>
+    <%= hidden_field :game, :cell, value: cell %>
+    <div class="actions">
+      <%= f.submit value: 'Sign' %>
+    </div>
+    <% end %>
+  <% else %>
+    <% if @game.table[cell].to_i == 1 %>
+      X
+    <% else %>
+      O
+    <% end %>
+  <% end %>
+
+  </td>
+<% end %>
+</tr>
+</table>
