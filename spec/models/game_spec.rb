@@ -100,4 +100,23 @@ RSpec.describe Game, type: :model do
 
   end
 
+  describe "compare" do
+    it{
+      game = Game.new
+      expect(game.compare("1","1","1")).to eq true
+    }
+    it{
+      game = Game.new
+      expect(game.compare("2","1","1")).to eq false
+    }
+    it{
+      game = Game.new
+      expect(game.compare("2","1","2")).to eq false
+    }
+    it{
+      game = Game.new
+      expect(game.compare("0","0","0")).to eq false
+    }
+  end
+
 end
