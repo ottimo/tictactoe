@@ -24,7 +24,7 @@ RSpec.describe GamesController, type: :controller do
   # Game. As you add validations to Game, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { table: '000000000' }
+    { table: '_________' }
   }
 
   let(:invalid_attributes) {
@@ -96,7 +96,7 @@ RSpec.describe GamesController, type: :controller do
         game = Game.create! valid_attributes
         put :update, { id: game.id, game: { cell: 1 } }
         game.reload
-        expect(game.table).to eq "010000000"
+        expect(game.table).to eq "_X_______"
       }
 
       #it "updates the requested game" do

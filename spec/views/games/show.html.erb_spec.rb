@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "games/show", type: :view do
   before(:each) do
-    @game = assign(:game, Game.create!(table: '000000000'))
+    @game = assign(:game, Game.create!(table: '_________'))
   end
 
   it "renders attributes in <p>" do

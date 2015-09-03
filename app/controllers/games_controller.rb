@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(game_params)
-    @game.table= '000000000'
+    @game.table= '_________'
 
     respond_to do |format|
       if @game.save
