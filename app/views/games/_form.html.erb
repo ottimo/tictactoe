@@ -16,7 +16,7 @@
   <% end %>
   <td style="width:50px;">
 
-  <% if @game.table[cell].to_i == 0 %>
+  <% if @game.table[cell] == "_" %>
     <%= form_for(@game) do |f| %>
     <%= hidden_field :game, :cell, value: cell %>
     <div class="actions">
@@ -24,11 +24,7 @@
     </div>
     <% end %>
   <% else %>
-    <% if @game.table[cell].to_i == 1 %>
-      X
-    <% else %>
-      O
-    <% end %>
+    <%= @game.table[cell] %>
   <% end %>
 
   </td>
