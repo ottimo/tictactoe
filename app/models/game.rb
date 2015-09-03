@@ -22,16 +22,13 @@ class Game < ActiveRecord::Base
   end
 
   def winner
-    #winner pattern 147 036 258
-    #winner pattern 012 345 678
-    #winner pattern 048 246
-    if compare(table[0],table[1],table[2]) ||
+    if compare(table[0],table[1],table[2]) || #winner pattern 012 345 678
        compare(table[3],table[4],table[5]) ||
        compare(table[6],table[7],table[8]) ||
-       compare(table[1],table[4],table[7]) ||
+       compare(table[1],table[4],table[7]) || #winner pattern 147 036 258
        compare(table[0],table[3],table[6]) ||
        compare(table[2],table[5],table[8]) ||
-       compare(table[0],table[4],table[8]) ||
+       compare(table[0],table[4],table[8]) || #winner pattern 048 246
        compare(table[2],table[6],table[6])
       return "X" if next_player? == "O"
       return "O"
